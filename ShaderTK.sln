@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShaderTK", "ShaderTK\ShaderTK.csproj", "{CF5D3226-9A39-4A3B-947E-5CE9E2494E3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BB0B61AE-76E6-476A-BD82-2078B100DDC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "glsl330", "tests\glsl330\glsl330.csproj", "{9B4C05E0-0439-4977-9565-82C0EB79E757}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B4C05E0-0439-4977-9565-82C0EB79E757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4C05E0-0439-4977-9565-82C0EB79E757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4C05E0-0439-4977-9565-82C0EB79E757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4C05E0-0439-4977-9565-82C0EB79E757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF5D3226-9A39-4A3B-947E-5CE9E2494E3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5D3226-9A39-4A3B-947E-5CE9E2494E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5D3226-9A39-4A3B-947E-5CE9E2494E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5D3226-9A39-4A3B-947E-5CE9E2494E3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B4C05E0-0439-4977-9565-82C0EB79E757} = {BB0B61AE-76E6-476A-BD82-2078B100DDC8}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = ShaderTK\ShaderTK.csproj
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
