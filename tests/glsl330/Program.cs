@@ -22,9 +22,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GLSL330
+namespace glsl330
 {
-    class Test
+    public class Test
     {
         class TestVS : VertexShader
         {
@@ -73,7 +73,7 @@ namespace GLSL330
             }
         }
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var program =
                 new ShaderProgram(
