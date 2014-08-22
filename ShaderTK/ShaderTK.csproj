@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sampler2dShadow.cs" />
@@ -53,8 +54,23 @@
     <Compile Include="input.cs" />
     <Compile Include="uniform.cs" />
     <Compile Include="vec2.cs" />
+    <Compile Include="vec2property.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vectorTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="vec3.cs" />
+    <Compile Include="vec3property.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vectorTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="vec4.cs" />
+    <Compile Include="vec4property.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vectorTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="versionAttribute.cs" />
     <Compile Include="VertexShader.cs" />
     <Compile Include="ShaderPass.cs" />
@@ -89,6 +105,9 @@
     </None>
     <None Include="..\ShaderTK.COPYING.txt">
       <Link>ShaderTK.COPYING.txt</Link>
+    </None>
+    <None Include="vectorTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
     </None>
   </ItemGroup>
 </Project>

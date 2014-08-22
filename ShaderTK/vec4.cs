@@ -25,7 +25,7 @@ namespace ShaderTK
 {
     partial class Shader
     {
-        protected struct vec4
+        protected partial struct vec4
         {
             public float x, y, z, w;
 
