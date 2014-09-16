@@ -1,0 +1,95 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ output extension="" #>
+<#
+	char[][] letterSets = { new[] { 'x', 'y', 'z', 'w' }, new[] { 'r', 'g', 'b', 'a' }, new[] { 's', 't', 'p', 'q' } };
+	for(int vectorSize = 2; vectorSize <= 4; vectorSize++)
+	{
+#>
+// This file is part of ShaderTK.
+//
+// Copyright (c) 2014 T4 Template
+//
+// ShaderTK is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as
+// published by the Free Software Foundation, either version 3 of
+// the License, or (at your option) any later version.
+//
+// ShaderTK is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with ShaderTK.  If not, see <http://www.gnu.org/licenses/>.
+
+// This is auto generated file.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ShaderTK
+{
+    partial class Shader
+    {
+        protected partial struct vec<#= vectorSize #>
+        {
+<#
+		foreach (var letters in letterSets)
+		{
+			for (int propLength = 2; propLength <= 4; propLength++)
+			{
+				foreach (var name in Generate(letters.Take(vectorSize), propLength))
+				{
+#>
+			public vec<#= name.Length #> <#= name #> { get { throw new NotImplementedException(); }<#= name.GroupBy(c => c).Any(g => g.Skip(1).Any()) ? "" : " set { }" #> }
+<#
+				}
+			}
+		}
+#>
+        }
+    }
+}
+<#
+		SaveOutput("vec" + vectorSize + "property.cs");
+	}
+#>
+Garbage file...
+<#+
+	void SaveOutput(string fileName)
+	{
+		string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+		string filePath = Path.Combine(templateDirectory, fileName);
+		File.WriteAllText(filePath, GenerationEnvironment.ToString());
+		GenerationEnvironment.Remove(0, GenerationEnvironment.Length);
+	}
+
+	IEnumerable<string> Generate(IEnumerable<char> letters, int limit)
+	{
+		return Loop(Enumerable.Empty<char>(), letters, limit).Select(x => string.Concat(x));
+	}
+
+	IEnumerable<IEnumerable<char>> Loop(IEnumerable<char> elem, IEnumerable<char> letters, int limit)
+	{
+		if (elem.Count() >= limit)
+		{
+			yield return elem;
+			yield break;
+		}
+
+		foreach (var l in letters)
+		{
+			foreach (var item in Loop(new List<char>(elem) { l }, letters, limit))
+			{
+				yield return item;
+			}
+		}
+	}
+#>
