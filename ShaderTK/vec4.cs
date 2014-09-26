@@ -54,7 +54,7 @@ namespace ShaderTK
                         case 3:
                             return w;
                         default:
-                            throw new ArgumentOutOfRangeException();
+                            throw new IndexOutOfRangeException();
                     }
                 }
                 set
@@ -74,7 +74,7 @@ namespace ShaderTK
                             w = value;
                             return;
                         default:
-                            throw new ArgumentOutOfRangeException();
+                            throw new IndexOutOfRangeException();
                     }
                 }
             }

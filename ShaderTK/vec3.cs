@@ -42,7 +42,7 @@ namespace ShaderTK
                         case 2:
                             return z;
                         default:
-                            throw new ArgumentOutOfRangeException();
+                            throw new IndexOutOfRangeException();
                     }
                 }
                 set
@@ -59,7 +59,7 @@ namespace ShaderTK
                             z = value;
                             return;
                         default:
-                            throw new ArgumentOutOfRangeException();
+                            throw new IndexOutOfRangeException();
                     }
                 }
             }
