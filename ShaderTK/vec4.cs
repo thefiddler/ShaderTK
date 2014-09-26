@@ -39,6 +39,46 @@ namespace ShaderTK
                 throw new NotImplementedException();
             }
 
+            public float this[int index]
+            {
+                get
+                {
+                    switch (index)
+                    {
+                        case 0:
+                            return x;
+                        case 1:
+                            return y;
+                        case 2:
+                            return z;
+                        case 3:
+                            return w;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+                set
+                {
+                    switch (index)
+                    {
+                        case 0:
+                            x = value;
+                            return;
+                        case 1:
+                            y = value;
+                            return;
+                        case 2:
+                            z = value;
+                            return;
+                        case 3:
+                            w = value;
+                            return;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+            }
+
             public static vec4 operator *(vec4 l, vec4 r)
             {
                 throw new NotImplementedException();

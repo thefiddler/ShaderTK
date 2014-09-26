@@ -28,6 +28,41 @@ namespace ShaderTK
         protected partial struct vec3
         {
             public float x, y, z;
+
+            public float this[int index]
+            {
+                get
+                {
+                    switch (index)
+                    {
+                        case 0:
+                            return x;
+                        case 1:
+                            return y;
+                        case 2:
+                            return z;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+                set
+                {
+                    switch (index)
+                    {
+                        case 0:
+                            x = value;
+                            return;
+                        case 1:
+                            y = value;
+                            return;
+                        case 2:
+                            z = value;
+                            return;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+            }
         }
     }
 }
