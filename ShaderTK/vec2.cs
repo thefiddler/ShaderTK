@@ -35,6 +35,36 @@ namespace ShaderTK
                 this.y = y;
             }
 
+            public float this[int index]
+            {
+                get
+                {
+                    switch (index)
+                    {
+                        case 0:
+                            return x;
+                        case 1:
+                            return y;
+                        default:
+                            throw new IndexOutOfRangeException();
+                    }
+                }
+                set
+                {
+                    switch (index)
+                    {
+                        case 0:
+                            x = value;
+                            return;
+                        case 1:
+                            y = value;
+                            return;
+                        default:
+                            throw new IndexOutOfRangeException();
+                    }
+                }
+            }
+
             public static vec2 operator +(vec2 l, vec2 r)
             {
                 throw new NotImplementedException();
